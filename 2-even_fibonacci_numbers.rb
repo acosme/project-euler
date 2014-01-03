@@ -2,19 +2,19 @@
 #1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 #By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-def generic_function_refactored(n)
-    sum = 0
-    return 1 if n <= 2
-    ultimos = [1,1]
-    (n-2).times do 
-        ultimos.reverse!
-        ultimos[1] = ultimos[0] + ultimos[1]
-        puts "#{ultimos[0]} - #{ultimos[1]}"
-        sum += ultimos[0]
-    end
 
-    puts "result"
-    puts sum
+#time: 3 hours
+
+second_antecessor = 1
+first_antecessor = 2
+main_number = second_antecessor + first_antecessor
+total = 2
+while main_number < 4000000
+    puts "#{main_number} => #{total}"
+    total += main_number if main_number.even?
+    second_antecessor = first_antecessor
+    first_antecessor = main_number
+    main_number = second_antecessor + first_antecessor
 end
 
-generic_function_refactored(4000000)
+puts total
