@@ -6,6 +6,8 @@
 #There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 #Find the product abc.
 
+#2 hours
+
 def special_pythagorean_triplet?(a,b,c)
     puts a + b + c
     return a + b + c == 1000
