@@ -30,35 +30,17 @@ big_diagonal = 0
 for i in 0..16
     for j in 0..16
         product_southwest = grid[i][j].to_i * grid[i+1][j+1].to_i * grid[i+2][j+2].to_i * grid[i+3][j+3].to_i
-        #puts "#{grid[i][j].to_i} - #{grid[i+1][j+1].to_i} - #{grid[i+2][j+2].to_i} - #{grid[i+3][j+3].to_i}"
-        if product_southwest > big_diagonal
-            big_diagonal = product_southwest
-        end
-
         product_northwest = grid[i+3][j].to_i * grid[i+2][j+1].to_i * grid[i+1][j+2].to_i * grid[i][j+3].to_i
-        if product_northwest > big_diagonal
-            big_diagonal = product_northwest
-        end
-
         product_down = grid[i][j+i].to_i * grid[i+1][j+1].to_i * grid[i+2][j+2].to_i * grid[i+3][j+3].to_i
-        if product_down > big_diagonal
-            big_diagonal = product_down
-        end
-
         product_up = grid[i+3][j].to_i * grid[i+3][j+1].to_i  * grid[i+3][j+2].to_i * grid[i+3][j+3].to_i
-        if product_up > big_diagonal
-            big_diagonal = product_up
-        end
-
         product_right = grid[i][j].to_i * grid[i][j+1].to_i * grid[i][j+2].to_i * grid[i][j+3].to_i
-        if product_right > big_diagonal
-            big_diagonal = product_right
-        end
-
         product_left = grid[i][j + 3].to_i * grid[i][j + 2].to_i * grid[i][j + 1].to_i * grid[i][j].to_i
-        if product_left > big_diagonal
-            big_diagonal = product_left
-        end
+
+        [product_southwest, product_northwest, product_down, product_up, product_right, product_left].each {|product|
+            if product > big_diagonal
+                big_diagonal = product
+            end
+        }
     end
 end
 
