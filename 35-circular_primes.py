@@ -28,4 +28,4 @@ for i in range(1,1000000):
             print "\n" + str(i)
             count_circulars += 0
 
-
+print count_circulars
