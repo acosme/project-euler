@@ -1,4 +1,7 @@
 project-euler
 =============
 
-A project with Mathematic and Algorithms wrote in ruby, python
+Resolutions with math and algorithms wrote in ruby, python and perl
+=======
+
+See http://projecteuler.net/
